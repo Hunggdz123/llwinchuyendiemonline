@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chuyển điểm</title>
+    <link rel="icon" type="image/png" href="images/LLwin-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="form">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="https://videos.files.wordpress.com/T07SD9Eb/ok.mp4" type="video/mp4" />
+    </video>
+    <div class="page-shell">
+      <aside class="side-tools" aria-label="Công cụ chuyển điểm">
+        <form id="addPointsForm" class="add-points-form side-panel" novalidate>
+          <label for="pointsToAdd">Cộng điểm</label>
+          <div class="add-points-controls">
+            <input id="pointsToAdd" type="number" min="1" step="1" placeholder="Nhập số điểm cần cộng" />
+            <button type="submit">CỘNG ĐIỂM</button>
+          </div>
+        </form>
+        <section class="outcome-tools side-panel" aria-labelledby="outcomeToolsTitle">
+          <h3 id="outcomeToolsTitle">Thử kết quả</h3>
+          <p>Không chọn thì áp dụng tỷ lệ ngẫu nhiên 4/6.</p>
+          <div class="outcome-buttons">
+            <button type="button" data-outcome="success" aria-pressed="false">Thành công</button>
+            <button type="button" data-outcome="failed" aria-pressed="false">Thất bại</button>
+          </div>
+        </section>
+      </aside>
+      <div class="app-card">
+        <div class="brand-wrap">
+          <img
+            class="brand-logo"
+            src="images/LLwin-logo.png"
+            alt="LLwin logo"
+          />
+        </div>
+
+        <h2 class="page-title">XỬ LÝ CHUYỂN ĐIỂM</h2>
+        <button class="logout-button" id="logoutButton" type="button">ĐĂNG XUẤT</button>
+
+        <section class="balance-panel" aria-labelledby="balanceTitle">
+          <div class="balance-summary">
+            <h3 id="balanceTitle">Tổng điểm hiện có</h3>
+            <p><span id="pointBalance">0</span> điểm</p>
+          </div>
+        </section>
+
+        <form id="transferForm" class="transfer-form" novalidate>
+          <div class="input-row">
+            <input id="sourceAccount" type="text" minlength="7" placeholder="Nhập tài khoản nguồn" aria-label="Nhập tài khoản nguồn" />
+          </div>
+          <div class="input-row">
+            <input id="targetAccount" type="text" minlength="7" placeholder="Nhập tài khoản đến" aria-label="Nhập tài khoản đến" />
+          </div>
+          <div class="input-row">
+            <input id="transferAmount" type="number" min="1" placeholder="Nhập số điểm chuyển" aria-label="Nhập số điểm chuyển" />
+          </div>
+
+          <button class="verify-box" type="button" aria-pressed="false" data-verified="false">
+            <div class="verify-left">
+              <span class="checkbox" aria-hidden="true"></span>
+              <span class="verify-label">Verify you are human</span>
+            </div>
+            <div class="cloudflare-mark">
+              <span class="cloudflare-icon">◉</span>
+              <span>CLOUDFLARE</span>
+              <small>Privacy · Terms</small>
+            </div>
+          </button>
+
+          <button type="submit" class="bottom-bar">CHUYỂN ĐIỂM</button>
+        </form>
+
+        <section class="history-section" aria-labelledby="historyTitle">
+          <h3 id="historyTitle">LỊCH SỬ CHUYỂN ĐIỂM</h3>
+          <div class="history-list" id="transferHistory" aria-live="polite"></div>
+        </section>
+      </div>
+    </div>
+
+    <dialog class="notice-dialog" id="noticeDialog" aria-labelledby="noticeTitle" aria-describedby="noticeMessage">
+      <div class="notice-icon" aria-hidden="true">!</div>
+      <h2 class="notice-title" id="noticeTitle">Vui lòng kiểm tra lại</h2>
+      <p class="notice-message" id="noticeMessage"></p>
+      <button class="notice-button" id="noticeClose" type="button">ĐÃ HIỂU</button>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
